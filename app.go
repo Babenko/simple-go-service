@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/babenko/simple-go-service/service"
+	"os"
 )
 
 func main() {
@@ -17,5 +18,10 @@ func main() {
 		Methods("POST").
 		HandlerFunc(service.UploadFile)
 	fmt.Println("Starting")
-	log.Fatal(http.ListenAndServe(":80", router))
+	log.Fatal(http.ListenAndServe(":8090", router))
+}
+
+func applyArgs() {
+	port := os.Args[0]
+
 }
