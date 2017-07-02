@@ -9,6 +9,7 @@ import (
 
 var MAX_FILE_SIZE int64 = 2<<20
 var STORAGE_DIRECTORY = "/tmp"
+var PARAM_NAME = "uploadfile"
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("START READ")
@@ -16,7 +17,7 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	if er != nil {
 		panic(er)
 	}
-	file, handler, err := r.FormFile("uploadfile")
+	file, handler, err := r.FormFile(PARAM_NAME)
 	if err != nil {
 		panic(err)
 	}

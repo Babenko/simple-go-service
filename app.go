@@ -47,4 +47,9 @@ func applyArgs() {
 		PORT = os.Args[3]
 	}
 	log.Print("Listen on port " + PORT)
+
+	if len(os.Args) == 5 && os.Args[4] != "" {
+		service.PARAM_NAME = os.Args[4]
+	}
+	log.Print("Param name is " + service.PARAM_NAME)
 }
