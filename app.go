@@ -12,5 +12,10 @@ func main() {
 	router := mux.NewRouter()
 
 	fmt.Println("Starting")
+	router.
+	Path("/upload").
+		Methods("POST").
+		HandlerFunc(service.UploadFile)
+	fmt.Println("Starting")
 	log.Fatal(http.ListenAndServe(":80", router))
 }
