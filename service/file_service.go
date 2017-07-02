@@ -7,7 +7,10 @@ import (
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("START READ")
-	r.ParseMultipartForm(32 << 20)
+	er := r.ParseMultipartForm(32 << 20)
+	if er != nil {
+		panic(er)
+	}
 	file, handler, err := r.FormFile("uploadfile")
 	if err != nil {
 		panic(err)
