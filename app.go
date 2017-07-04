@@ -21,7 +21,7 @@ func main() {
 	router.
 	Path("/upload").
 		Methods("POST").
-		HandlerFunc(service.createFile)
+		HandlerFunc(service.UploadFile)
 	log.Fatal(http.ListenAndServe(":"+PORT, router))
 }
 
