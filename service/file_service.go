@@ -32,3 +32,12 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	defer f.Close()
 	io.Copy(f, file)
 }
+
+func createFile(w http.ResponseWriter, r *http.Request) {
+	er := r.ParseMultipartForm(MAX_FILE_SIZE)
+	if er != nil {
+		panic(er)
+	}
+	w.Header().Set("Location", r.FormValue("uploadfile.path"))
+	w.WriteHeader(http.StatusCreated)
+}
