@@ -39,5 +39,6 @@ func CreateFile(w http.ResponseWriter, r *http.Request) {
 		panic(er)
 	}
 	w.Header().Set("Location", r.FormValue(PARAM_NAME + ".path"))
+	w.Write([]byte(r.FormValue(PARAM_NAME + ".path")))
 	w.WriteHeader(http.StatusCreated)
 }
